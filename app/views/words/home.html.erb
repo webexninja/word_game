@@ -1,0 +1,6 @@
+<%=form_for @word, url: {action: "home"} do |f|  %>
+    <%= render 'shared/error' %>
+	<%= f.label :name, "What is the meaning of #{@word.name} ?"%>
+	<%= f.text_field :answer %>
+	<%= f.submit "Hello"%>
+<% end %>
