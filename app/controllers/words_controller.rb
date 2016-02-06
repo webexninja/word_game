@@ -1,10 +1,12 @@
 class WordsController < ApplicationController
-  def home
-	  @word = Word.find(1)
+  include WordsHelper
+	def home
+	  @word = find_word()
+	  @array = options()
   end
   def update
 	  @word = Word.find(1)
-	if params[:word][:answer] == @word.answer
+	if params[:word][:answer] == @word.meaning
 		render text: "Correct"
 	else
 		render text: "Wrong Answer"

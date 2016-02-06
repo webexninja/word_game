@@ -1,6 +1,5 @@
-<%=form_for @word, url: {action: "home"} do |f|  %>
-    <%= render 'shared/error' %>
-	<%= f.label :name, "What is the meaning of #{@word.name} ?"%>
-	<%= f.text_field :answer %>
-	<%= f.submit "Hello"%>
+<%=simple_form_for @word, url: {action: "home"}, html: {class: "form-horizontal"} do |f|  %>
+	<%= f.label @word.name%>
+	<%= f.input :answer, collection: @array, as: :radio_buttons%>
+	<%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
